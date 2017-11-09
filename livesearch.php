@@ -8,7 +8,7 @@ $conn=new mysqli($server, $username_server, $password_server, $database);
 $sql=" SELECT * FROM Users WHERE username = "."'".$username."'";
 $result=$conn->query($sql);
 if($result->num_rows==0)
-  echo "Available";
+  echo "✓";
 else
-  echo "Taken";
+  echo "✘";
 ?>

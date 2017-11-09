@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow|Passion+One');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Passion One', cursive;
+}
+
+body {
+	font-family: 'Barlow', sans-serif;
+	font-size: 20px;
+	color: #282828;
+	background-color: #8EC07C;
+	text-align: center;
+	transition: all 0.3s ease-in-out;
+}
+
+form {
+	display: inline-block;
+}
+
+.container {
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+	position: absolute;
+}
+
+.form-container {
+	text-align: left;
+	display: inline-block;
+	margin: 20px 40px;
+	padding: 20px;
+	box-sizing: content-box;
+	min-width: 200px;
+}
+
+input {
+	margin: 20px 0;
+	margin-top: 2px;
+	padding-left: 10px;
+	height: 35px;
+	box-shadow: none;
+	background-color: #689D6A;
+	border-radius: 3px;
+	border: 0 solid;
+}
+
+input[type="submit"] {
+	border: 2px solid gray;
+	background: none;
+	border-radius: 3px;
+}
