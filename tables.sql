@@ -26,3 +26,4 @@ ALTER TABLE `transactions` ADD CONSTRAINT `transactions_fk0` FOREIGN KEY (`user_
 
 ALTER TABLE `transactions` ADD CONSTRAINT `transactions_fk1` FOREIGN KEY (`company_id`) REFERENCES `companies`(`id`);
 
+ALTER TABLE `users` ADD isAdmin int;

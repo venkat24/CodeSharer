@@ -1,6 +1,6 @@
 <?php
 session_start();
-// illegal_login_attempt(); Commented only until admin rights are added to the user table
+illegal_login_attempt();
 logout_from_page();
 function illegal_login_attempt(){
     if(!isset($_SESSION['username'])){

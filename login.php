@@ -35,7 +35,10 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
                 $_SESSION['name']=$row['name'];
                 $_SESSION['username']=$username;
                 $conn->close();
-                header('Location: welcome.php');
+                if($row['isAdmin']==1)
+                    header('Location: admin.php');
+                else
+                    header('Location: welcome.php');
                 exit();
             }
             else{

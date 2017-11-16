@@ -36,7 +36,7 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
             $thisthing=$result->fetch_assoc();
             $_SESSION['error'].="Username taken ".$thisthing['username'];
         } else {
-            $insert=$conn->prepare("INSERT INTO users (username,password) VALUES(?,?)");
+            $insert=$conn->prepare("INSERT INTO users (username,password,balance,isAdmin) VALUES(?,?,10000,0)");
             $insert->bind_param("ss", $username, $password);
             $insert->execute();
             $insert->close();
