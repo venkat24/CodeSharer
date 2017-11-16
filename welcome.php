@@ -18,6 +18,7 @@ function logout_from_page(){
 ?>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" type="text/css" href="welcome.css">
     <meta charset="utf-8">
     <title>Welcome to Stocks Management System</title>
@@ -65,12 +66,10 @@ function logout_from_page(){
     </div>
 
     <br>
-    <div>
+    <div class="form-container">
       <h2>Buy Stock</h2>
       <form action="" method="post">
         Stock : 
-        <!-- Add CSS to make the select and input fields look better !-->
-        <!-- Also add CSS to make Buy, Sell and Logout button look better !-->
         <select name="company">
         <!-- This data needs to be populated from companies table !-->
           <option value="apple">Apple</option>
@@ -86,12 +85,10 @@ function logout_from_page(){
       </form>
     </div>
 
-    <br>
-    <div>
+    <div class="form-container">
       <h2>Sell Stock</h2>
       <form action="" method="post">
         Stock : 
-        <!-- Add CSS to make the select and input fields look better !-->
         <select name="company">
         <!-- This data needs to be populated from users table to only show companies that the user has!-->
           <option value="apple">Apple</option>
@@ -109,7 +106,7 @@ function logout_from_page(){
     <br>
 
     <form class="" action="" method="GET">
-      <input type="submit" name="logout" value="logout">
+      <input type="submit" name="logout" value="Logout">
     </form>
   </body>
 </html>

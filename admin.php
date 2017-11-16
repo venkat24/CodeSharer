@@ -18,18 +18,18 @@ function logout_from_page(){
 ?>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" type="text/css" href="admin.css">
     <meta charset="utf-8">
     <title>Welcome to Stocks Management System</title>
   </head>
   <body>
-    <div>
-      <!-- Add CSS !-->
+    <div class="form-container">
       <h2>Add Company</h2>
       <form action="" method="post">
         <!-- Need to check to make sure company doesn't already exist !-->
         Company Name : 
-        <input type="text" name="companyname">
+        <input type="text" name="companyname" style="margin: 5px;">
         <br>
         Set Price : 
         <input type="number" width="20px;" name="price">
@@ -38,12 +38,10 @@ function logout_from_page(){
       </form>
     </div>
 
-    <br>
-    <div>
+    <div class="form-container">
       <h2>Change Price</h2>
       <form action="" method="post">
         Company : 
-        <!-- Add CSS to make the select and input fields look better !-->
         <select name="company">
         <!-- This data needs to be populated from companies table!-->
           <option value="apple">Apple</option>

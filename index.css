@@ -39,6 +39,7 @@ form {
 }
 
 input {
+	font-family: 'Barlow', sans-serif;
 	margin: 20px 0;
 	margin-top: 2px;
 	padding-left: 10px;
@@ -50,7 +51,10 @@ input {
 }
 
 input[type="submit"] {
-	border: 2px solid gray;
-	background: none;
-	border-radius: 3px;
+	border: 1px solid black;
+	font-size: 15px;
+}
+
+input[type="submit"]:hover {
+	background-color: #47844B;
 }
