@@ -6,7 +6,7 @@ $password="";
 $name="";
 if($_SERVER['REQUEST_METHOD']==="POST"){
     $_SESSION['error']="";
-    $name=$_POST['name'];
+    $name=$_POST['username'];
     $password=htmlspecialchars($_POST['password']);
     $username=$_POST['username'];
     if(test_name($name)!=0)
