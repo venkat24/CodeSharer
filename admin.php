@@ -26,13 +26,13 @@ function logout_from_page(){
   <body>
     <div class="form-container">
       <h2>Add Company</h2>
-      <form action="" method="post">
+      <form action="addcompany.php" method="post">
         <!-- Need to check to make sure company doesn't already exist !-->
         Company Name : 
-        <input type="text" name="companyname" style="margin: 5px;">
+        <input type="text" name="company" style="margin: 5px;">
         <br>
         Set Price : 
-        <input type="number" width="20px;" name="price">
+        <input type="number" step="0.01" width="20px;" name="price">
         <br>
         <input type="submit" value="Create IPO">
       </form>
@@ -40,20 +40,24 @@ function logout_from_page(){
 
     <div class="form-container">
       <h2>Change Price</h2>
-      <form action="" method="post">
+      <form action="changeprice.php" method="post">
         Company : 
         <select name="company">
-        <!-- This data needs to be populated from companies table!-->
-          <option value="apple">Apple</option>
-          <option value="google">Google</option>
-          <option value="facebook">Facebook</option>
+<?php
+      require_once('config.php');
+      $company="SELECT name from companies";
+      $result=$conn->query($company);
+      while ($row = $result->fetch_assoc()) {
+        echo '<option value="'.$row["name"].'">'.$row["name"].'</option>';
+      }
+          ?>
         </select>
         <br>
         <!-- Check to make sure the user has enough quantity!-->
         New Price : 
-        <input type="number" width="20px;" name="newprice">
+        <input type="number" step="0.01" width="20px;" name="newprice">
         <br>
-        <input type="submit" value="Sell">
+        <input type="submit" value="Change">
       </form>
     </div>
     <br>
