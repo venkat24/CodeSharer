@@ -16,11 +16,11 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     $stockprice=$row['stock_price'];
     $moneyneeded=$stockprice*$_POST['qty'];
 
-    $balanceidsql="SELECT (users.balance + sum(transactions.qty*companies.stock_price)) as bal FROM users, transactions,companies where users.id = transactions.user_id AND transactions.company_id = companies.id AND users.id = ".$userid.";";
+    $balanceidsql="SELECT (users.balance + sum(transactions.total_amount)) as bal FROM users, transactions where users.id = transactions.user_id AND users.id = ".$userid.";";
     $result=$conn->query($balanceidsql);
     $row=$result->fetch_assoc() or error_log($conn->error);
     $balance=$row['bal'];
-    if(!$balance) {
+    if($balance==null) {
       $balanceidsql="SELECT balance from users where id = ".$userid.";";
       $result=$conn->query($balanceidsql);
       $row=$result->fetch_assoc() or error_log($conn->error);

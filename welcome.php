@@ -62,7 +62,7 @@ require_once('config.php');
     $result=$conn->query($balanceidsql);
     $row=$result->fetch_assoc() or error_log($conn->error);
     $balance=$row['bal'];
-    if(!$balance) {
+    if($balance==null) {
       $balanceidsql="SELECT balance from users where id = ".$userid.";";
       $result=$conn->query($balanceidsql);
       $row=$result->fetch_assoc() or error_log($conn->error);
