@@ -185,8 +185,8 @@ require_once('config.php');
     </div>
     <br>
 
-      <input type="submit" name="logout" value="Logout">
     <form class="" action="" method="GET">
+      <input type="submit" name="logout" value="Logout">
     </form>
       <script>
         function updatemax() {
