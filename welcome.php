@@ -86,7 +86,7 @@ require_once('config.php');
       $idresult=$conn->query($useridsql);
       $row=$idresult->fetch_assoc();
       $userid=$row['id'];
-      $company="SELECT companies.name as company_name, companies.stock_price as stock_price, (-1)*SUM(qty) as tot_qty, (-1)*SUM(total_amount) as tot_amount FROM transactions, companies WHERE transactions.company_id = companies.id AND user_id = ".$userid." GROUP BY company_id having sum(qty) != 0;";
+      $company="SELECT companies.name as company_name, companies.stock_price as stock_price, (-1)*SUM(qty) as tot_qty, (-1)*SUM(qty)*companies.stock_price as tot_amount FROM transactions, companies WHERE transactions.company_id = companies.id AND user_id = ".$userid." GROUP BY company_id having sum(qty) != 0;";
       $result=$conn->query($company);
       $qtytot=0;
       $pricetot=0;
@@ -131,7 +131,7 @@ require_once('config.php');
         </select>
         <br>
         Quantity : 
-        <input type="number" step="0.01" width="20px;" name="qty">
+        <input type="number" step="0.01" width="20px;" name="qty" min="0">
         <br>
         <input type="submit" value="Buy">
       </form>
@@ -178,7 +178,7 @@ require_once('config.php');
       echo '</script>';
         ?>
         Quantity : 
-        <input type="number" step="0.01" width="20px;" name="qty" id="sellstock" onchange="updatemax();">
+        <input type="number" step="0.01" width="20px;" name="qty" id="sellstock" onchange="updatemax();" min="0">
         <br>
         <input type="submit" value="Sell">
       </form>

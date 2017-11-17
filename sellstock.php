@@ -16,9 +16,11 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     $stockprice=$row['stock_price'];
 
     $qty=$_POST['qty'];
-    $sql="INSERT INTO transactions(user_id, company_id, qty, total_amount) values ($userid, $companyid, $qty, $qty*$stockprice);";
-    error_log($sql);
-    $result=$conn->query($sql);
+    if($qty>=0) {
+        $sql="INSERT INTO transactions(user_id, company_id, qty, total_amount) values ($userid, $companyid, $qty, $qty*$stockprice);";
+        error_log($sql);
+        $result=$conn->query($sql);
+    }
     header("Location: welcome.php");
 }
 ?>

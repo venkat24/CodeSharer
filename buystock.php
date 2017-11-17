@@ -14,11 +14,26 @@ if($_SERVER['REQUEST_METHOD']==="POST"){
     $row=$idresult->fetch_assoc() or error_log($conn->error);
     $companyid=$row['id'];
     $stockprice=$row['stock_price'];
+    $moneyneeded=$stockprice*$_POST['qty'];
+
+    $balanceidsql="SELECT (users.balance + sum(transactions.qty*companies.stock_price)) as bal FROM users, transactions,companies where users.id = transactions.user_id AND transactions.company_id = companies.id AND users.id = ".$userid.";";
+    $result=$conn->query($balanceidsql);
+    $row=$result->fetch_assoc() or error_log($conn->error);
+    $balance=$row['bal'];
+    if(!$balance) {
+      $balanceidsql="SELECT balance from users where id = ".$userid.";";
+      $result=$conn->query($balanceidsql);
+      $row=$result->fetch_assoc() or error_log($conn->error);
+      $balance=$row['balance'];
+    }
 
     $qty=(-1)*$_POST['qty'];
-    $sql="INSERT INTO transactions(user_id, company_id, qty, total_amount) values ($userid, $companyid, $qty, $qty*$stockprice);";
-    error_log($sql);
-    $result=$conn->query($sql);
+    if($qty<=0 && $balance>=$moneyneeded) {
+        $sql="INSERT INTO transactions(user_id, company_id, qty, total_amount) values ($userid, $companyid, $qty, $qty*$stockprice);";
+        error_log($sql);
+        $result=$conn->query($sql);
+    }
+
     header("Location: welcome.php");
 }
 ?>
