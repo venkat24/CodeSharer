@@ -32,7 +32,7 @@ function logout_from_page(){
         <input type="text" name="company" style="margin: 5px;">
         <br>
         Set Price : 
-        <input type="number" step="0.01" width="20px;" name="price">
+        <input type="number" step="0.01" width="20px;" name="price" min="1">
         <br>
         <input type="submit" value="Create IPO">
       </form>
@@ -55,7 +55,7 @@ function logout_from_page(){
         <br>
         <!-- Check to make sure the user has enough quantity!-->
         New Price : 
-        <input type="number" step="0.01" width="20px;" name="newprice">
+        <input type="number" step="0.01" width="20px;" name="newprice" min="1">
         <br>
         <input type="submit" value="Change">
       </form>
