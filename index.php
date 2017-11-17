@@ -85,12 +85,12 @@ function test_password($pass)
       <h2>Register</h2>
       <form action="" method="post">
         Username <br />
-        <input type="text" name="username" value="" onkeyup="showResult(this.value)">
+        <input type="text" name="username" value="" onkeyup="showResult(this.value)" required>
         <a id="livesearch">
         </a>
         <br />
         Password <br>
-        <input type="password" name="password" value=""><br>
+        <input type="password" name="password" value="" required><br>
         <input type="submit" value="Register"/>
       </form>
     </div>
